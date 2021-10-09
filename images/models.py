@@ -15,9 +15,9 @@ class Category(models.Model):
     self.delete()
 
   @classmethod
-  def updater(cls, jina,):
+  def updater(cls, old_name, jina):
     try:
-      categ  = Category.objects.get(name= jina)
+      categ  = Category.objects.get(name= old_name)
       categ.name = jina
       categ.save()
       return categ

@@ -14,7 +14,7 @@ class ImageTestClass(TestCase):
       self.Nairobi.save_locale() 
 
       self.picha= Image(title= 'Test', photo ='test.jpg' ,description='Random Words', category=self.Nature, location = self.Nairobi)
-      self.picha.save()
+      self.picha.save_img()
     def tearDown(self):
         Category.objects.all().delete()
         Location.objects.all().delete()
@@ -42,8 +42,20 @@ class ImageTestClass(TestCase):
         self.assertEqual(updated.photo, 'new.jpg')
         self.assertEqual(updated.description, 'Hi')
 
-# class CategoryTestClass(TestCase):
-#   abc = 'abc'
+class CategoryTestClass(TestCase):
+
+    def setUp(self):
+        self.categ= Category(name='test')
+        self.categ.save_category()
+    def tearDown(self):
+        Category.objects.all().delete()
+    # def test_save_category(self):
+    #     self.assertTrue(len(Category.objects.all())==1) 
+    # def test_update_category(self):
+    #     updated = Category.updater('test', 'new test')
+    #     self.assertEqual(updated.name, 'new test')            
+    # def test_delete_category(self):
+    #     deleted = self.categ.delete_category()
+    #     self.assertTrue(len(Category.objects.all())==0)        
 
 # class LocationTestClass(TestCase):
-#   abc = 'abc'

@@ -49,11 +49,11 @@ class CategoryTestClass(TestCase):
         self.categ.save_category()
     def tearDown(self):
         Category.objects.all().delete()
-    # def test_save_category(self):
-    #     self.assertTrue(len(Category.objects.all())==1) 
-    # def test_update_category(self):
-    #     updated = Category.updater('test', 'new test')
-    #     self.assertEqual(updated.name, 'new test')            
+    def test_save_category(self):
+        self.assertTrue(len(Category.objects.all())==1) 
+    def test_update_category(self):
+        updated = Category.updater('test', 'new test')
+        self.assertEqual(updated.name, 'new test')            
     # def test_delete_category(self):
     #     deleted = self.categ.delete_category()
     #     self.assertTrue(len(Category.objects.all())==0)        

@@ -66,9 +66,9 @@ class LocationTestClass(TestCase):
         Location.objects.all().delete()
     def test_save_location(self):
         self.assertTrue(len(Location.objects.all())==1) 
-    # def test_update_location(self):
-    #     updated = self.Nairobi.updater('Nakuru')
-    #     self.assertEqual(updated.place, 'Nakuru')            
-    # def test_delete_location(self):
-    #     deleted = self.Nairobi.delete_locale()
-    #     self.assertTrue(len(Location.objects.all())==0)  
+    def test_update_location(self):
+        updated = self.Nairobi.updater('Nakuru')
+        self.assertEqual(updated.place, 'Nakuru')            
+    def test_delete_location(self):
+        deleted = self.Nairobi.delete_locale()
+        self.assertTrue(len(Location.objects.all())==0)  

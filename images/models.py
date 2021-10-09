@@ -66,16 +66,16 @@ class Image(models.Model):
       return self
     except self.DoesNotExist:
       print('Image not found')  
-        
-  # @classmethod
-  # def get_all(cls,):
-  #  photos = cls.objects.all()
-  #  return photos
 
-  # @classmethod 
-  # def get_by_id(cls, id):
-  #   photo = cls.objects.filter(id=id)
-  #   return photo
+  @classmethod
+  def get_all(cls,):
+   photos = cls.objects.all()
+   return photos
+
+  @classmethod 
+  def get_by_id(cls, id):
+    photo = cls.objects.filter(id=id)
+    return photo
 
   # @classmethod
   # def get_by_loc(cls, loc):

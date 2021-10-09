@@ -27,13 +27,13 @@ class ImageTestClass(TestCase):
         img = Image.get_by_id(1)
         self.assertTrue(len(img)>0)
 
-    # def test_get_by_loc(self):
-    #     img = Image.get_by_loc('Nairobi, Kenya')
-    #     self.assertTrue(len(img)>0)    
+    def test_get_by_loc(self):
+        img = Image.get_by_loc('Nairobi, Kenya')
+        self.assertTrue(len(img)>0)    
 
-    # def test_search(self):
-    #     img = Image.img_searcher('Nature')
-    #     self.assertTrue(len(img)>0)      
+    def test_search(self):
+        img = Image.img_searcher('Nature')
+        self.assertTrue(len(img)>0)      
     # def test_delete(self):
     #     self.picha.delete_img()
     #     self.assertTrue(len(Image.objects.all())==0)

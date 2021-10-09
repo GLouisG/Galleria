@@ -34,13 +34,13 @@ class ImageTestClass(TestCase):
     def test_search(self):
         img = Image.img_searcher('Nature')
         self.assertTrue(len(img)>0)      
-    # def test_delete(self):
-    #     self.picha.delete_img()
-    #     self.assertTrue(len(Image.objects.all())==0)
-    # def test_update(self):
-    #     updated=self.picha.img_updater('new.jpg', 'Hi')
-    #     self.assertEqual(updated.photo, 'new.jpg')
-    #     self.assertEqual(updated.description, 'Hi')
+    def test_delete(self):
+        self.picha.delete_img()
+        self.assertTrue(len(Image.objects.all())==0)
+    def test_update(self):
+        updated=self.picha.img_updater('new.jpg', 'Hi')
+        self.assertEqual(updated.photo, 'new.jpg')
+        self.assertEqual(updated.description, 'Hi')
 
 # class CategoryTestClass(TestCase):
 #   abc = 'abc'

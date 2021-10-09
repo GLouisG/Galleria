@@ -54,8 +54,8 @@ class CategoryTestClass(TestCase):
     def test_update_category(self):
         updated = Category.updater('test', 'new test')
         self.assertEqual(updated.name, 'new test')            
-    # def test_delete_category(self):
-    #     deleted = self.categ.delete_category()
-    #     self.assertTrue(len(Category.objects.all())==0)        
+    def test_delete_category(self):
+        deleted = self.categ.delete_category()
+        self.assertTrue(len(Category.objects.all())==0)        
 
 # class LocationTestClass(TestCase):

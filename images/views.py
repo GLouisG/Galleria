@@ -16,3 +16,7 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message}) 
+def by_location(request, location):
+    area = location
+    pics = Image.get_by_loc(location)
+    return render(request, "by-location.html", {"area":area, "pics": pics})            

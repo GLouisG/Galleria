@@ -77,16 +77,16 @@ class Image(models.Model):
     photo = cls.objects.filter(id=id)
     return photo
 
-  # @classmethod
-  # def get_by_loc(cls, loc):
-  #   photos = cls.objects.filter(location__place__contains = loc)
-  #   return photos 
+  @classmethod
+  def get_by_loc(cls, loc):
+    photos = cls.objects.filter(location__place__contains = loc)
+    return photos 
 
 
-  # @classmethod
-  # def img_searcher(cls, categ):
-  #   photos = cls.objects.filter(category__name__contains = categ)
-  #   return photos    
+  @classmethod
+  def img_searcher(cls, categ):
+    photos = cls.objects.filter(category__name__contains = categ)
+    return photos    
 
   def __str__(self):
       return self.title

@@ -30,10 +30,10 @@ class Location(models.Model):
   def save_locale(self):
     self.save()
 
-  def delete_category(self):
+  def delete_locale(self):
     self.delete()    
 
-  def updater(self, loc,):
+  def updater(self, loc):
     try:
       self.place = loc
       self.save()

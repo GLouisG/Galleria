@@ -58,4 +58,17 @@ class CategoryTestClass(TestCase):
         deleted = self.categ.delete_category()
         self.assertTrue(len(Category.objects.all())==0)        
 
-# class LocationTestClass(TestCase):
+class LocationTestClass(TestCase):
+    def setUp(self):
+        self.Nairobi = Location(place='Nairobi')
+        self.Nairobi.save_locale() 
+    def tearDown(self):
+        Location.objects.all().delete()
+    def test_save_location(self):
+        self.assertTrue(len(Location.objects.all())==1) 
+    # def test_update_location(self):
+    #     updated = self.Nairobi.updater('Nakuru')
+    #     self.assertEqual(updated.place, 'Nakuru')            
+    # def test_delete_location(self):
+    #     deleted = self.Nairobi.delete_locale()
+    #     self.assertTrue(len(Location.objects.all())==0)  

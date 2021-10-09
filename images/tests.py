@@ -56,7 +56,10 @@ class CategoryTestClass(TestCase):
         self.assertEqual(updated.name, 'new test')            
     def test_delete_category(self):
         deleted = self.categ.delete_category()
-        self.assertTrue(len(Category.objects.all())==0)        
+        self.assertTrue(len(Category.objects.all())==0)     
+    def test_get_all(self):
+        categories = Category.get_all()
+        self.assertTrue(len(categories)>0)       
 
 class LocationTestClass(TestCase):
     def setUp(self):
@@ -72,3 +75,6 @@ class LocationTestClass(TestCase):
     def test_delete_location(self):
         deleted = self.Nairobi.delete_locale()
         self.assertTrue(len(Location.objects.all())==0)  
+    def test_get_all(self):
+        locations = Location.get_all()
+        self.assertTrue(len(locations)>0)    

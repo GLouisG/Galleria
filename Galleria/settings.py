@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'images.apps.ImagesConfig',
-    
+    'cloudinary_storage',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,10 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dalt8uztf',
+    'API_KEY': '913192741446122',
+    'API_SECRET': 'TTGJ37uyV4JWR0vbeAyhxQGRhB8'
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

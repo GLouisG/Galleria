@@ -7,18 +7,40 @@ class Category(models.Model):
 
   def __str__(self):
       return self.name
+
   def save_category(self):
     self.save()
+
   def delete_category(self):
-    self.delete()  
+    self.delete()
+
+  @classmethod
+  def updater(cls, jina,):
+    try:
+      categ  = Category.objects.get(name= jina)
+      categ.name = jina
+      categ.save()
+      return categ
+    except Category.DoesNotExist:
+      print('That does not exist')     
 
 class Location(models.Model):
   place = models.CharField(max_length =50)  
 
   def save_locale(self):
     self.save()
+
   def delete_category(self):
     self.delete()    
+
+  def updater(self, loc,):
+    try:
+      self.place = loc
+      self.save()
+      return self
+    except self.DoesNotExist:
+      print('The location you gave does not exist in our records')     
+
   def __str__(self):
       return self.place
 
@@ -32,8 +54,10 @@ class Image(models.Model):
 
   def save_img(self):
     self.save()
+
   def delete_img(self):
     self.delete()
+
   def img_updater(self, new_pic, desc,):
     try:
       self.photo = new_pic
@@ -41,15 +65,18 @@ class Image(models.Model):
       self.save()
       return self
     except self.DoesNotExist:
-      print('Image not found')    
+      print('Image not found')  
+        
   # @classmethod
   # def get_all(cls,):
   #  photos = cls.objects.all()
   #  return photos
+
   # @classmethod 
   # def get_by_id(cls, id):
   #   photo = cls.objects.filter(id=id)
   #   return photo
+
   # @classmethod
   # def get_by_loc(cls, loc):
   #   photos = cls.objects.filter(location__place__contains = loc)

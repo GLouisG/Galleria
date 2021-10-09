@@ -22,8 +22,12 @@ class Category(models.Model):
       categ.save()
       return categ
     except Category.DoesNotExist:
-      print('That does not exist')     
+      print('That does not exist') 
 
+  @classmethod
+  def get_all(cls,):
+   categories = cls.objects.all()
+   return categories
 class Location(models.Model):
   place = models.CharField(max_length =50)  
 
@@ -40,6 +44,11 @@ class Location(models.Model):
       return self
     except self.DoesNotExist:
       print('The location you gave does not exist in our records')     
+
+  @classmethod
+  def get_all(cls,):
+   locations = cls.objects.all()
+   return locations
 
   def __str__(self):
       return self.place

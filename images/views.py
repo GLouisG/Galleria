@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Image, Location, Category
+from django.http import HttpResponse, Http404
+from django.db.models.base import ObjectDoesNotExist
 # Create your views here.
 def landing(request):
     pics = Image.get_all()
@@ -12,11 +14,18 @@ def search_results(request):
         searched_imgs = Image.img_searcher(search_term)
         message = f"For {search_term}"
 
-        return render(request, 'search.html', {"term":term, "imgs":searched_imgs})
+        return render(request, 'search.html', {"message":message, "imgs":searched_imgs})
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message}) 
 def by_location(request, location):
     area = location
     pics = Image.get_by_loc(location)
-    return render(request, "by-location.html", {"area":area, "pics": pics})            
+    return render(request, "location.html", {"area":area, "pics": pics})           
+
+def photograph(request, photo_id):
+    try:
+        image = Image.get_by_id(id=photo_id)
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request,"all-news/article.html", {"article":image})        

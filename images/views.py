@@ -28,4 +28,4 @@ def photograph(request, photo_id):
         image = Image.get_by_id(id=photo_id)
     except ObjectDoesNotExist:
         raise Http404()
-    return render(request,"all-news/article.html", {"article":image})        
+    return render(request,"image.html", {"image":image})        

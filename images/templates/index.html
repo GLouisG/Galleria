@@ -4,7 +4,7 @@
 {{block.super}}
 
 
-  <div class="container-fluid">
+  <div class="container-fluid theconts">
     {%if areas%}
       <div class="jumbotron">
         <h2 id="locations">Locations</h2>  
@@ -17,10 +17,10 @@
         {%endfor%}
       </div> 
     {%endif%}
-    <div class="card">
-      {%if categs%}
-      <h2>Available categories to search</h2>
+      {%if categs%}  
       <div class="card">
+      <h2>Available categories to search</h2>
+
       {%for categ in categs%}
           <ul name="categories" id="categories">
             <li>{{categ.name}}</li>
@@ -29,8 +29,7 @@
 
       {%endfor%}   
       </div>   
-      {%endif%}
-    </div>  
+      {%endif%} 
 
     {%for pic in pics%}
     <div class="row">

@@ -4,10 +4,14 @@
 <html>
 <head>
   <meta charset="utf-8">
-    <title> Moringa Tribune </title>
+  {% if title %}
+    <title>{{title}}</title>
+  {% else %}
+    <title>Galleria</title>
+  {% endif %}
   {% block styles %}
     {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
   {% endblock %}
 
 </head>

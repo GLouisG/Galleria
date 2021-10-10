@@ -1,1 +1,50 @@
-<h1> Welcome to my personal gallery</h1>
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+
+
+  <div class="container-fluid">
+    {%if areas%}
+      <div class="jumbotron">
+        <h1>Locations</h1>  
+        {%for area in areas%}
+      
+          <ul name="locales" id="locales">
+            <li><a href="/location/{{area.place}}"></a></li>
+          </ul>
+
+        {%endfor%}
+      </div> 
+    {%endif%}
+    <div class="card">
+      {%if categories%}
+      <h2>Available categories to search</h2>
+      {%for categ in categs%}
+        <ul name="categories" id="categories">
+          <li>{{categ.name}}</li>
+        </ul>
+      {%endfor%}      
+      {%endif%}
+    </div>  
+
+    {%for pic in pics%}
+    <div class="row">
+      <div class="card">
+        <h2>{{pic.title}}</h2>
+        <div class="col-md-6 imagecol" style="background-image: url({{pic.photo}}); background-size:cover;   background-repeat: no-repeat;">
+        </div>
+        <div class="col-md-6">
+          <h4>{{pic.category}}</h4>
+          <h4>{{pic.location}}</h4>
+        </div>
+      </div>      
+    </div>
+    {%empty%}
+    <h3>No Images Yet</h3>
+    {%endfor%}
+
+  </div>
+
+
+{% endblock %}

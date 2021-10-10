@@ -12,16 +12,16 @@ def search_results(request):
     if 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
         searched_imgs = Image.img_searcher(search_term)
-        message = f"For {search_term}"
+        title = f"For {search_term}"
 
-        return render(request, 'search.html', {"message":message, "imgs":searched_imgs})
+        return render(request, 'search.html', {"title":title, "imgs":searched_imgs})
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message}) 
 def by_location(request, location):
-    area = location
+    title = location
     pics = Image.get_by_loc(location)
-    return render(request, "location.html", {"area":area, "pics": pics})           
+    return render(request, "location.html", {"title":title, "pics": pics})           
 
 def photograph(request, photo_id):
     try:

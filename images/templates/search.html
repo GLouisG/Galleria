@@ -1,0 +1,36 @@
+{%extends 'all-news/base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if imgs%}
+      <h2>Found {{ imgs|length }} results{{title}}</h2>
+    {% else %}
+      <h2> Found 0 imgs for the search term {{title}}</h2>
+    {% endif %}
+    {% if message%}
+      <h2>{{message}}</h2>
+    {%endif%}
+
+  </div>
+
+  <div class="row">
+
+  {% if imgs %}
+    {% for img in imgs %}
+    <div class="row">
+      <div class="card">
+        <h2><a href="/photograph/{{img.id}}">{{img.title}}</a></h2>
+        <div class="col-md-6 imagecol" style="background-image: url({{img.photo.url}}); background-size:cover;   background-repeat: no-repeat;">
+        </div>
+        <div class="col-md-6">
+          <h4>{{img.category}}</h4>
+          <h4>{{img.location}}</h4>
+        </div>
+      </div>      
+    </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}

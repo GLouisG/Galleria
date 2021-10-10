@@ -5,7 +5,7 @@
  <div class="container">
 
    <div class="row">
-     <img src="{{image.photo}}"  class="img-responsive" alt="">
+     <img src="{{image.photo.url}}"  class="img-responsive" alt="">
    </div>
 
    <div class="row">
@@ -19,10 +19,10 @@
 
    <div class="row">
      <div class="col-md-6">
-       <p>{{image.category}}</p>
+       <p><i class="glyphicon glyphicon-tag "></i>Category:{{image.category}}</p>
      </div>
      <div class="col-md-6">
-       <p>{{image.location}}</p>
+       <p><i class="glyphicon glyphicon-map-marker"></i>Location:{{image.location}}</p>
      </div>
      
    </div>

@@ -1,0 +1,48 @@
+*{
+  padding-left: 0;
+  padding-right: 0;
+  margin-left:0;
+  margin-right:0;
+  border-left: 0px;
+  border-right: 0px;
+
+}
+.container-fluid{
+  text-align: center;
+}
+.jumbotron{
+  background: url(https://lh3.googleusercontent.com/proxy/l6IecZDHYHfT4faObcNIYKJMx9Z7piFbOuuqOIenX-QwrLBxBjhL0DmF1ODK3Et2aCCoy3Y8TjBprTlHSt9TQGIDo4910OB-i1FCLtsDLeG9uVccNSEZRws3EH8fQpICma0EmdKvExebMmwng--TviO5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  position: relative;
+}
+#locations{
+  position: absolute;
+  bottom: 57%;
+  left: 47%;
+}
+#locales, #categories{
+  list-style-type:none;
+  text-align: center;
+  min-width: 20%;
+	list-style: none;
+}
+.table {
+	display: table;   /* Allow the centering to work */
+	margin: 0 auto;
+}
+ul#locales li{
+  display: inline;
+  text-align: center;
+
+  
+}
+ul#categories li{
+  display: inline;
+  text-align: center;
+
+}
+.locale{
+  color: yellow;
+}

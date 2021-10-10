@@ -7,24 +7,28 @@
   <div class="container-fluid">
     {%if areas%}
       <div class="jumbotron">
-        <h1>Locations</h1>  
+        <h2 id="locations">Locations</h2>  
         {%for area in areas%}
       
           <ul name="locales" id="locales">
-            <li><a href="/location/{{area.place}}">{{area.place}}</a></li>
+            <li><a class="locale"href="/location/{{area.place}}">{{area.place}}</a></li>
           </ul>
 
         {%endfor%}
       </div> 
     {%endif%}
     <div class="card">
-      {%if categories%}
+      {%if categs%}
       <h2>Available categories to search</h2>
+      <div class="card">
       {%for categ in categs%}
-        <ul name="categories" id="categories">
-          <li>{{categ.name}}</li>
-        </ul>
-      {%endfor%}      
+          <ul name="categories" id="categories">
+            <li>{{categ.name}}</li>
+          </ul>          
+      
+
+      {%endfor%}   
+      </div>   
       {%endif%}
     </div>  
 
@@ -32,11 +36,12 @@
     <div class="row">
       <div class="card">
         <h2><a href="/photograph/{{pic.id}}">{{pic.title}}</a></h2>
-        <div class="col-md-6 imagecol" style="background-image: url({{pic.photo.url}}); background-size:cover;   background-repeat: no-repeat;">
+        <div class="col-md-6 imagecol" >
+          <a href="/photograph/{{pic.id}}"><img src="{{pic.photo.url}}"  class="img-responsive" alt=""></a>
         </div>
         <div class="col-md-6">
-          <h4>{{pic.category}}</h4>
-          <h4>{{pic.location}}</h4>
+          <h4><i class="glyphicon glyphicon-tag "></i>Category: {{pic.category}}</h4>
+          <h4><i class="glyphicon glyphicon-map-marker"></i>Location: {{pic.location}}</h4>
         </div>
       </div>      
     </div>

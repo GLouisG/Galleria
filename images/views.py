@@ -7,6 +7,7 @@ def landing(request):
     pics = Image.get_all()
     areas = Location.get_all()
     categs = Category.get_all()
+    print(pics, "pics")
     return render(request, 'index.html', {"pics": pics, "areas":areas, "categs":categs})
 def search_results(request):
     if 'image' in request.GET and request.GET["image"]:
@@ -21,11 +22,13 @@ def search_results(request):
 def by_location(request, location):
     title = location
     pics = Image.get_by_loc(location)
+
     return render(request, "location.html", {"title":title, "pics": pics})           
 
-def photograph(request, photo_id):
+def photograph(request, id):
     try:
-        image = Image.get_by_id(id=photo_id)
+        image = Image.get_by_id(id=id)
+        print("image here",image.photo,)
     except ObjectDoesNotExist:
         raise Http404()
     return render(request,"image.html", {"image":image})        

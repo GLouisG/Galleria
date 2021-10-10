@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+
+  <div class="container-fluid">
+    <h1>{{title}}</h1>
+    {%for pic in pics%}
+    <div class="row">
+      <div class="card">
+        <h2>{{pic.title}}</h2>
+        <div class="col-md-6 imagecol" style="background-image: url({{pic.photo}}); background-size:cover;   background-repeat: no-repeat;">
+        </div>
+        <div class="col-md-6">
+          <h4>{{pic.category}}</h4>
+          <h4>{{pic.location}}</h4>
+        </div>
+      </div>      
+    </div>
+    {%empty%}
+    <h3>No Images Yet</h3>
+    {%endfor%}
+  </div>
+
+{% endblock %}  
